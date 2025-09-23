@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/GoLynkWed/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GoLynk Admin Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <!-- Redirect non-hash deep links to hash URL so SPA works on GitHub Pages refresh -->
+    <script>
+      (function(){
+        try{
+          var base = '/GoLynkWed';
+          var p = window.location.pathname || '/';
+          // only redirect when there's no hash and the path is not root
+          if(!window.location.hash){
+            var norm = p.replace(/\/+$/,'');
+            var isRoot = norm === '' || norm === '/' || norm === base || norm === base.replace(/\/+$/,'');
+            // avoid redirecting asset requests
+            var isAsset = /\.(js|css|png|jpg|jpeg|svg|ico|map)$/.test(p);
+            if(!isRoot && !isAsset){
+              // remove base if present
+              var suffix = norm.indexOf(base) === 0 ? norm.slice(base.length) : norm;
+              if(suffix === '') suffix = '/';
+              var to = (base || '') + '/#' + (suffix.charAt(0) === '/' ? suffix : '/' + suffix);
+              window.location.replace(to);
+            }
+          }
+        }catch(e){
+          console.warn('hash redirect error',e);
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/GoLynkWed/assets/index-KeKDUZ4Q.js"></script>
+    <link rel="modulepreload" crossorigin href="/GoLynkWed/assets/vendor-Dv8yHUJx.js">
+    <link rel="modulepreload" crossorigin href="/GoLynkWed/assets/ui-_ZM4x6U1.js">
+    <link rel="modulepreload" crossorigin href="/GoLynkWed/assets/router-D3MUw1wZ.js">
+    <link rel="modulepreload" crossorigin href="/GoLynkWed/assets/icons-BxeNji5-.js">
+    <link rel="modulepreload" crossorigin href="/GoLynkWed/assets/charts-CwqUmdU9.js">
+    <link rel="modulepreload" crossorigin href="/GoLynkWed/assets/maps-B8T2bm-s.js">
+    <link rel="stylesheet" crossorigin href="/GoLynkWed/assets/index-BYQqEwWn.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
