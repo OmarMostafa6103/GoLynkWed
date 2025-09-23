@@ -12,26 +12,34 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <!-- Redirect non-hash deep links to hash URL so SPA works on GitHub Pages refresh -->
     <script>
-      (function(){
-        try{
-          var base = '/GoLynkWed';
-          var p = window.location.pathname || '/';
+      (function () {
+        try {
+          var base = "/GoLynkWed";
+          var p = window.location.pathname || "/";
           // only redirect when there's no hash and the path is not root
-          if(!window.location.hash){
-            var norm = p.replace(/\/+$/,'');
-            var isRoot = norm === '' || norm === '/' || norm === base || norm === base.replace(/\/+$/,'');
+          if (!window.location.hash) {
+            var norm = p.replace(/\/+$/, "");
+            var isRoot =
+              norm === "" ||
+              norm === "/" ||
+              norm === base ||
+              norm === base.replace(/\/+$/, "");
             // avoid redirecting asset requests
             var isAsset = /\.(js|css|png|jpg|jpeg|svg|ico|map)$/.test(p);
-            if(!isRoot && !isAsset){
+            if (!isRoot && !isAsset) {
               // remove base if present
-              var suffix = norm.indexOf(base) === 0 ? norm.slice(base.length) : norm;
-              if(suffix === '') suffix = '/';
-              var to = (base || '') + '/#' + (suffix.charAt(0) === '/' ? suffix : '/' + suffix);
+              var suffix =
+                norm.indexOf(base) === 0 ? norm.slice(base.length) : norm;
+              if (suffix === "") suffix = "/";
+              var to =
+                (base || "") +
+                "/#" +
+                (suffix.charAt(0) === "/" ? suffix : "/" + suffix);
               window.location.replace(to);
             }
           }
-        }catch(e){
-          console.warn('hash redirect error',e);
+        } catch (e) {
+          console.warn("hash redirect error", e);
         }
       })();
     </script>
